@@ -41,6 +41,7 @@ zipped = zip(position, city, country, population)
 
 for a, b, c, d in zipped:
     print(a, b, c, d)
+    
 
 
 
