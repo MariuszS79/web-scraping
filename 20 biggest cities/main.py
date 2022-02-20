@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 url = "https://www.archdaily.com/906605/the-20-largest-cities-in-the-world-of-2018"
 response = requests.get(url)
@@ -36,7 +37,17 @@ for i in range(len(pop_list_raw)):
     population[i] = population[i].replace(",", "")
     population[i] = int(population[i])
 
-zipped = zip(position, city, country, population)
 
-for a, b, c, d in zipped:
-    print(a, b, c, d)
+fields = ["Position", "City", "Country", "Population"]
+
+rows = []
+
+for i in range(len(population)):
+    row = [position[i], city[i], country[i], population[i]]
+    rows.append(row)
+
+
+with open('20 biggest cities', 'w') as f:
+    write = csv.writer(f)
+    write.writerow(fields)
+    write.writerows(rows)
