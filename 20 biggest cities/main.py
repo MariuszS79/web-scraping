@@ -48,5 +48,3 @@ for a, b, c, d in zipped:
 
 
 
-
-
