@@ -11,7 +11,6 @@ cities = soup.find_all("h3")
 city_list_raw = [city.getText() for city in cities]
 city_list_raw = city_list_raw[0:20]
 
-
 position = []
 city = []
 country = []
@@ -20,12 +19,12 @@ population = []
 for i in range(len(city_list_raw)):
     splitted = city_list_raw[i].split()
     position.append(splitted[0])
-    position[i] = position[i].replace("-","")
+    position[i] = position[i].replace("-", "")
     city.append(splitted[1])
     city[i] = city[i].replace(",", "")
     country.append(splitted[2])
 
-pop = soup.find_all(lambda tag:tag.name=="p" and "Population:" in tag.text)
+pop = soup.find_all(lambda tag: tag.name == "p" and "Population:" in tag.text)
 pop_list_raw = [p.getText() for p in pop]
 pop_list_raw = pop_list_raw[::2]
 
@@ -41,10 +40,3 @@ zipped = zip(position, city, country, population)
 
 for a, b, c, d in zipped:
     print(a, b, c, d)
-
-
-
-
-
-
-
