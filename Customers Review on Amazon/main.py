@@ -19,9 +19,3 @@ total_ratings = total_ratings.split("ratings")
 total_ratings = int(total_ratings[0].replace(",", ""))
 
 
-
-
-
-
-print(five_stars)
-
